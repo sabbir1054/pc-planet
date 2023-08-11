@@ -50,9 +50,9 @@ const CategoryList = () => {
   return (
     <div>
       <h1 style={{ textAlign: "center", padding: "5vh 0" }}>Category</h1>
-      <Row gutter={[16, 16]} style={{ padding: "0 100px" }}>
+      <Row gutter={[16, 16]} style={{marginLeft:"5vh"}}>
         {data.map((item) => (
-          <Col lg={3} md={4} sm={2} key={item.id}>
+          <Col lg={3} md={6} sm={12} key={item.id}>
             <Link href={item.link}>
               <Card hoverable>
                 <div style={{ display: "flex", alignItems: "center" }}>

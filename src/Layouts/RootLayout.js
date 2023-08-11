@@ -1,6 +1,10 @@
 import styles from "@/styles/Home.module.css";
-import { BarsOutlined, CaretDownOutlined } from "@ant-design/icons";
-import { Button, Col, Drawer, Dropdown, Layout, Row } from "antd";
+import {
+  BarsOutlined,
+  CaretDownOutlined,
+  EditOutlined,
+} from "@ant-design/icons";
+import { Button, Col, Divider, Drawer, Dropdown, Layout, Row } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 const { Header, Content, Footer } = Layout;
@@ -122,6 +126,24 @@ const RootLayout = ({ children }) => {
         </div>
 
         <div className="user-info" style={{ color: "white" }}>
+          <Link href="/pcBuild" className={styles.authLink}>
+            <items
+              style={{
+                margin: "0px 5px",
+                color: "white",
+                fontSize: "16px",
+              }}
+            >
+              <Button
+                type="primary"
+                shape="round"
+                icon={<EditOutlined />}
+                size={"large"}
+              >
+                Build PC
+              </Button>
+            </items>
+          </Link>
           <Link href="/login" className={styles.authLink}>
             <items
               style={{
@@ -134,7 +156,7 @@ const RootLayout = ({ children }) => {
             </items>
           </Link>
 
-          <Link href="/signup" className={styles.authLink}>
+          <Link href="/register" className={styles.authLink}>
             <items
               style={{
                 margin: "0px 5px",
@@ -164,7 +186,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/cpu">Processor</Link>
+            <Link href="/categories/cpu">Processor</Link>
           </p>
           <p
             style={{
@@ -175,7 +197,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/motherboard">Motherboard</Link>
+            <Link href="/categories/motherboard">Motherboard</Link>
           </p>
           <p
             style={{
@@ -186,7 +208,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/ram">RAM</Link>
+            <Link href="/categories/ram">RAM</Link>
           </p>
           <p
             style={{
@@ -197,7 +219,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/psu">Power Supply</Link>
+            <Link href="/categories/psu">Power Supply</Link>
           </p>
           <p
             style={{
@@ -208,7 +230,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/storage">Storage Device</Link>
+            <Link href="/categories/storage">Storage Device</Link>
           </p>
           <p
             style={{
@@ -219,7 +241,7 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/monitor">Monitor</Link>
+            <Link href="/categories/monitor">Monitor</Link>
           </p>
           <p
             style={{
@@ -230,7 +252,26 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/others">Others</Link>
+            <Link href="/categories/others">Others</Link>
+          </p>
+          <p
+            style={{
+              color: "black",
+              fontSize: "18px",
+              padding: "10px 15px",
+              borderBottom: "1px solid #e2e2e2",
+              transition: "all 0.3s ease-in",
+            }}
+          >
+            <Button
+              style={{ width: "100%" }}
+              type="primary"
+              // shape="round"
+              icon={<EditOutlined />}
+              size={"large"}
+            >
+              Build PC
+            </Button>
           </p>
           <p
             style={{
@@ -243,6 +284,7 @@ const RootLayout = ({ children }) => {
           >
             <Link href="/login">Login</Link>
           </p>
+
           <p
             style={{
               color: "black",
@@ -252,14 +294,13 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/signUp">SignUp</Link>
+            <Link href="/register">SignUp</Link>
           </p>
         </Drawer>
       </Header>
 
       <Content
         style={{
-       
           minHeight: "100vh",
         }}
       >
@@ -274,13 +315,17 @@ const RootLayout = ({ children }) => {
         }}
       >
         <Row>
-          <Col xs={24} md={8}>
+          <Col
+            xs={24}
+            md={8}
+            style={{  fontFamily: "Roboto" }}
+          >
             <h1>
               <Link
                 href="/"
                 style={{
                   color: "white",
-                  padding: "5px 10px",
+                  // padding: "5px 10px",
                   borderRadius: "3px",
                 }}
               >
@@ -289,14 +334,22 @@ const RootLayout = ({ children }) => {
             </h1>
 
             <p style={{ fontWeight: "bold", marginTop: "2vh" }}>Branch -1</p>
-            <p style={{ width: "400px", fontSize: "14px" }}>
+            <p style={{ maxWidth: "400px", fontSize: "14px" ,padding:"0 2vh" }}>
               Shop 248,249,250 #Level 2, Computer City Center (Multiplan) New
               Elephant Road, Dhaka-1205, Bangladesh.
             </p>
+            <h3 style={{ marginTop: "10px" }}>HelpLine</h3>
+            <p style={{ padding: "10px" }}>For PC: 01785236547</p>
+            <p style={{ padding: "10px" }}>For Laptop: 01785236547</p>
           </Col>
-          <Col xs={24} md={8}>
+          <Col
+            xs={24}
+            md={8}
+            style={{ fontSize: "18px", fontFamily: "Roboto" }}
+          >
             <h3>Stay Connected</h3>
-            <ul style={{ listStyle: "unstyled" }}>
+            
+            <ul style={{ listStyle: "unstyled",marginLeft:"20px" }}>
               <li style={{ padding: "10px 0px", fontWeight: "bold" }}>CPU</li>
               <li style={{ padding: "10px 0px", fontWeight: "bold" }}>
                 Motherboard
@@ -314,9 +367,7 @@ const RootLayout = ({ children }) => {
             </ul>
           </Col>
           <Col xs={24} md={8}>
-            <h3>HelpLine</h3>
-            <p style={{ padding: "10px" }}>For PC: 01785236547</p>
-            <p style={{ padding: "10px" }}>For Laptop: 01785236547</p>
+            <img src="/assets/pc-build.gif" alt="" width={"100%"} />
           </Col>{" "}
           <br />
         </Row>
