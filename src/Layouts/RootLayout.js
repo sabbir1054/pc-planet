@@ -9,7 +9,7 @@ const RootLayout = ({ children }) => {
     {
       key: "1",
       label: (
-        <Link href="/cpu">
+        <Link href="/categories/cpu">
           <items>Processor</items>
         </Link>
       ),
@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
     {
       key: "2",
       label: (
-        <Link href="/motherboard">
+        <Link href="/categories/motherboard">
           <items>Motherboard</items>
         </Link>
       ),
@@ -25,7 +25,7 @@ const RootLayout = ({ children }) => {
     {
       key: "3",
       label: (
-        <Link href="/ram">
+        <Link href="/categories/ram">
           <items>RAM</items>
         </Link>
       ),
@@ -33,7 +33,7 @@ const RootLayout = ({ children }) => {
     {
       key: "4",
       label: (
-        <Link href="/psu">
+        <Link href="/categories/psu">
           <items>Power Supply</items>
         </Link>
       ),
@@ -41,7 +41,7 @@ const RootLayout = ({ children }) => {
     {
       key: "5",
       label: (
-        <Link href="/storage">
+        <Link href="/categories/storage">
           <items>Storage Device</items>
         </Link>
       ),
@@ -49,7 +49,7 @@ const RootLayout = ({ children }) => {
     {
       key: "6",
       label: (
-        <Link href="/monitor">
+        <Link href="/categories/monitor">
           <items>Monitor</items>
         </Link>
       ),
@@ -57,7 +57,7 @@ const RootLayout = ({ children }) => {
     {
       key: "7",
       label: (
-        <Link href="/others">
+        <Link href="/categories/others">
           <items>Others</items>
         </Link>
       ),
