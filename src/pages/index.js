@@ -1,10 +1,21 @@
+import CategoryList from '@/Components/CategoryList';
+import FeaturedProducts from '@/Components/FeaturedProducts';
+import HeroSlider from '@/Components/HeroSlider';
+import ProductCard from '@/Components/ProductCard';
 import RootLayout from '@/Layouts/RootLayout';
 import Head from 'next/head';
 import React from 'react';
-
-const HomePage = () => {
+const shuffleProducts = (productsData) => {
+  for (let i = productsData.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [productsData[i], productsData[j]] = [productsData[j], productsData[i]];
+  }
+  return productsData;
+};
+const HomePage = ({ featuredProducts }) => {
+  console.log(featuredProducts);
   return (
-    <div>
+    <>
       <Head>
         <title>PC PLANET</title>
         <meta
@@ -14,7 +25,10 @@ const HomePage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    </div>
+      <HeroSlider />
+      <CategoryList/>
+      <FeaturedProducts featuredProducts={featuredProducts} />
+    </>
   );
 };
 
@@ -22,4 +36,16 @@ export default HomePage;
 
 HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://pc-planet-backend.vercel.app/products");
+  const data = await res.json();
+  const shuffledProducts = shuffleProducts(data?.data);
+  return {
+    props: {
+      featuredProducts: shuffledProducts.slice(0, 8),
+    },
+    revalidate: 10,
+  };
 };

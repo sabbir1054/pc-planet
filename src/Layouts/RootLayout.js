@@ -259,7 +259,7 @@ const RootLayout = ({ children }) => {
 
       <Content
         style={{
-          padding: "0 24px",
+       
           minHeight: "100vh",
         }}
       >
@@ -274,7 +274,7 @@ const RootLayout = ({ children }) => {
         }}
       >
         <Row>
-          <Col span={8}>
+          <Col xs={24} md={8}>
             <h1>
               <Link
                 href="/"
@@ -294,7 +294,7 @@ const RootLayout = ({ children }) => {
               Elephant Road, Dhaka-1205, Bangladesh.
             </p>
           </Col>
-          <Col span={8}>
+          <Col xs={24} md={8}>
             <h3>Stay Connected</h3>
             <ul style={{ listStyle: "unstyled" }}>
               <li style={{ padding: "10px 0px", fontWeight: "bold" }}>CPU</li>
@@ -313,7 +313,7 @@ const RootLayout = ({ children }) => {
               </li>
             </ul>
           </Col>
-          <Col span={8}>
+          <Col xs={24} md={8}>
             <h3>HelpLine</h3>
             <p style={{ padding: "10px" }}>For PC: 01785236547</p>
             <p style={{ padding: "10px" }}>For Laptop: 01785236547</p>
