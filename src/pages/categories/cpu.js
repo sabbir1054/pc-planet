@@ -36,8 +36,17 @@ const CPU = ({ products }) => {
         <Row gutter={[16, 24]}>
           {products?.length > 0 &&
             products?.map((product) => (
-              <Col className="gutter-row" span={6} key={product.name}>
-                <ProductCard product={product} />
+              <Col
+                className="gutter-row"
+                xs={24}
+                md={12}
+                lg={8}
+                xl={6}
+                key={product.name}
+              >
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <ProductCard product={product} />
+                </div>
               </Col>
             ))}
         </Row>

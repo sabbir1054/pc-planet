@@ -48,15 +48,20 @@ const CategoryList = () => {
     // ... add more data
   ];
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <h1 style={{ textAlign: "center", padding: "5vh 0" }}>Category</h1>
-      <Row gutter={[16, 16]} style={{marginLeft:"5vh"}}>
+      <Row gutter={[16, 16]} style={{ paddingLeft: "5vh", width: "100%" }}>
         {data.map((item) => (
           <Col lg={3} md={6} sm={12} key={item.id}>
             <Link href={item.link}>
               <Card hoverable>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <img src={`${item.imgIcon}`} width={30} alt="category-icon" srcset="" />{" "}
+                  <img
+                    src={`${item.imgIcon}`}
+                    width={30}
+                    alt="category-icon"
+                    srcset=""
+                  />{" "}
                   <span
                     style={{
                       marginLeft: "5px",
