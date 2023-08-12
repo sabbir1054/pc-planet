@@ -13,7 +13,7 @@ const shuffleProducts = (productsData) => {
   return productsData;
 };
 const HomePage = ({ featuredProducts }) => {
-  console.log(featuredProducts);
+  
   return (
     <>
       <Head>

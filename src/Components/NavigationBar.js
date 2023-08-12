@@ -116,7 +116,7 @@ const NavigationBar = () => {
           >
             <Button
               style={{ backgroundColor: "unset", borderColor: "unset" }}
-              // className={styles.componentsBtn}
+              className={styles.componentsBtn}
             >
               <span
                 style={{
@@ -327,8 +327,6 @@ const NavigationBar = () => {
                 }
                 style={{ width: "100%", backgroundColor: "red" }}
                 type="primary"
-                // shape="round"
-
                 size={"large"}
               >
                 Logout

@@ -10,7 +10,6 @@ const initialState = {
     powerSupply: null,
     others: null,
   },
-  selectedCategory: "",
 };
 
 const builderSlice = createSlice({
@@ -20,17 +19,13 @@ const builderSlice = createSlice({
     addToBuilder: (state, action) => {
       state.selectedProducts[action.payload.key] = action.payload.data;
     },
-    selectCategory: (state, action) => {
-      state.selectedCategory = action.payload;
-    },
     removeFromBuilder: (state, action) => {
       state.selectedProducts = action.payload;
-      state.selectedCategory = "";
     },
   },
 });
 
-export const { addToBuilder, selectCategory, removeFromBuilder } =
+export const { addToBuilder, removeFromBuilder } =
   builderSlice.actions;
 
 export default builderSlice.reducer;

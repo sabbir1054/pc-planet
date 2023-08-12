@@ -1,4 +1,3 @@
-
 import Footer from "@/Components/Footer";
 import NavigationBar from "@/Components/NavigationBar";
 import store from "@/redux/store";
