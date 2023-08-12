@@ -46,6 +46,6 @@ export const getStaticProps = async () => {
     props: {
       featuredProducts: shuffledProducts.slice(0, 8),
     },
-    revalidate: 10,
+  
   };
 };

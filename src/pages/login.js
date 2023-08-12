@@ -1,6 +1,6 @@
 import RootLayout from "@/Layouts/RootLayout";
-import { Button, Card, Divider, Typography } from "antd";
 import { GithubOutlined } from "@ant-design/icons";
+import { Button, Card, Divider, Typography } from "antd";
 import { signIn } from "next-auth/react";
 const { Title } = Typography;
 
@@ -46,7 +46,9 @@ const Login = () => {
               fontSize: "16px",
             }}
             onClick={() =>
-              signIn("github", { callbackUrl: "http://localhost:3000/" })
+              signIn("github", {
+                callbackUrl: "https://pc-planet-frontend.vercel.app/",
+              })
             }
           >
             <GithubOutlined />

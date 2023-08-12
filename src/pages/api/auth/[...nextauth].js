@@ -9,7 +9,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: "http://localhost:3000/login",
+    signIn: "https://pc-planet-frontend.vercel.app/login",
   },
 };
 export default NextAuth(authOptions);

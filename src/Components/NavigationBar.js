@@ -182,7 +182,9 @@ const NavigationBar = () => {
                     style={{ backgroundColor: "red" }}
                     size={"large"}
                     onClick={() =>
-                      signOut({ callbackUrl: "http://localhost:3000/" })
+                      signOut({
+                        callbackUrl: "https://pc-planet-frontend.vercel.app/",
+                      })
                     }
                   >
                     Logout
@@ -323,7 +325,9 @@ const NavigationBar = () => {
             >
               <Button
                 onClick={() =>
-                  signOut({ callbackUrl: "http://localhost:3000/" })
+                  signOut({
+                    callbackUrl: "https://pc-planet-frontend.vercel.app/",
+                  })
                 }
                 style={{ width: "100%", backgroundColor: "red" }}
                 type="primary"
