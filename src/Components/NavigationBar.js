@@ -5,7 +5,7 @@ import {
   EditOutlined,
 } from "@ant-design/icons";
 import { Button, Drawer, Dropdown } from "antd";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 const NavigationBar = () => {
@@ -153,22 +153,60 @@ const NavigationBar = () => {
               </Button>
             </items>
           </Link>
-          {/* {
-            session?.user
-          } */}
-          <Link href="/login" className={styles.authLink}>
-            <items
-              style={{
-                margin: "0px 5px",
-                color: "white",
-                fontSize: "16px",
-              }}
-            >
-              <Button type="primary" size={"large"}>
-                Login
-              </Button>
-            </items>
-          </Link>
+          {session?.user ? (
+            <div style={{ display: "inline-block" }} className={styles.user}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <items
+                  style={{
+                    margin: "0px 5px",
+                    color: "white",
+                    fontSize: "16px",
+                  }}
+                >
+                  <img
+                    src={`${session?.user?.image}`}
+                    width={"30px"}
+                    alt=""
+                    srcset=""
+                  />
+                </items>
+                <items
+                  style={{
+                    margin: "0px 5px",
+                    color: "white",
+                    fontSize: "16px",
+                  }}
+                >
+                  <Button
+                    type="primary"
+                    style={{ backgroundColor: "red" }}
+                    size={"large"}
+                    onClick={() =>
+                      signOut({ callbackUrl: "http://localhost:3000/" })
+                    }
+                  >
+                    Logout
+                  </Button>
+                </items>
+              </div>
+            </div>
+          ) : (
+            <>
+              <Link href="/login" className={styles.authLink}>
+                <items
+                  style={{
+                    margin: "0px 5px",
+                    color: "white",
+                    fontSize: "16px",
+                  }}
+                >
+                  <Button type="primary" size={"large"}>
+                    Login
+                  </Button>
+                </items>
+              </Link>
+            </>
+          )}
 
           <Button
             type="primary"
@@ -272,39 +310,47 @@ const NavigationBar = () => {
               </Button>
             </Link>
           </p>
-          <p
-            style={{
-              color: "black",
-              fontSize: "18px",
-              padding: "10px 15px",
-              borderBottom: "1px solid #e2e2e2",
-              transition: "all 0.3s ease-in",
-            }}
-          >
-            <Link href="/login">
+
+          {session?.user ? (
+            <p
+              style={{
+                color: "black",
+                fontSize: "18px",
+                padding: "10px 15px",
+                borderBottom: "1px solid #e2e2e2",
+                transition: "all 0.3s ease-in",
+              }}
+            >
               <Button
-                style={{ width: "100%" }}
+                onClick={() =>
+                  signOut({ callbackUrl: "http://localhost:3000/" })
+                }
+                style={{ width: "100%", backgroundColor: "red" }}
                 type="primary"
                 // shape="round"
 
                 size={"large"}
               >
-                Login
+                Logout
               </Button>
-            </Link>
-          </p>
-
-          {/* <p
-            style={{
-              color: "black",
-              fontSize: "18px",
-              padding: "10px 15px",
-              borderBottom: "1px solid #e2e2e2",
-              transition: "all 0.3s ease-in",
-            }}
-          >
-            <Link href="/register">SignUp</Link>
-          </p> */}
+            </p>
+          ) : (
+            <p
+              style={{
+                color: "black",
+                fontSize: "18px",
+                padding: "10px 15px",
+                borderBottom: "1px solid #e2e2e2",
+                transition: "all 0.3s ease-in",
+              }}
+            >
+              <Link href="/login">
+                <Button style={{ width: "100%" }} type="primary" size={"large"}>
+                  Login
+                </Button>
+              </Link>
+            </p>
+          )}
         </Drawer>
       </div>
     </>

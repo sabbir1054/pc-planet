@@ -37,7 +37,7 @@ const Login = () => {
           <Button
             type="primary"
             style={{
-              backgroundColor:"black",
+              backgroundColor: "black",
               width: "100%",
               padding: "20px 0",
               display: "flex",
@@ -45,7 +45,9 @@ const Login = () => {
               alignItems: "center",
               fontSize: "16px",
             }}
-            onClick={() => signIn('github')}
+            onClick={() =>
+              signIn("github", { callbackUrl: "http://localhost:3000/" })
+            }
           >
             <GithubOutlined />
             Login with GitHub

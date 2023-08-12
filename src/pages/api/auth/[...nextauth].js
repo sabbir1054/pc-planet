@@ -10,7 +10,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: "localhost:3000/login",
+    signIn: "http://localhost:3000/login",
   },
 };
 export default NextAuth(authOptions);

@@ -21,6 +21,9 @@
 }
 
 @media (max-width: 900px) {
+  .user{
+    display: none !important;
+  }
   .componentsBtn,
   .authLink {
     display: none;

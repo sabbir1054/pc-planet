@@ -3,7 +3,7 @@ import React from 'react';
 
 const BuildPC = () => {
     return (
-        <div>
+        <div style={{minHeight:"100vh"}}>
             
         </div>
     );
