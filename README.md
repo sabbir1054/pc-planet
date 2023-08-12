@@ -23,8 +23,23 @@ The PC Build Application empowers users to craft personalized PC setups by choos
 
 ## Instruction for run project
 
-1. Clone the repository: `git clone https://github.com/sabbir1054/pc-planet.git`
-2. Change directory to the project directory: `cd pc-planet`
-3. Install dependencies: `npm install`
-4. Run the application: `npm start`
+1. Clone the repository:
+
+```
+git clone https://github.com/sabbir1054/pc-planet.git
+
+```
+
+2. Change directory to the project directory: 
+```
+cd pc-planet
+```
+3. Install dependencies: 
+```
+npm install
+```
+4. Run the application: 
+```
+npm start
+```
 5. Access the application at `http://localhost:3000`
