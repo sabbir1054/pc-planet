@@ -4,12 +4,11 @@ import {
   CaretDownOutlined,
   EditOutlined,
 } from "@ant-design/icons";
-import { Button, Col, Divider, Drawer, Dropdown, Layout, Row } from "antd";
+import { Button, Drawer, Dropdown } from "antd";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
-import { useSession,signOut } from "next-auth/react";
-const { Header, Content, Footer } = Layout;
-const RootLayout = ({ children }) => {
+const NavigationBar = () => {
   const { data: session } = useSession();
 
   console.log(session);
@@ -83,11 +82,13 @@ const RootLayout = ({ children }) => {
   };
 
   return (
-    <Layout>
-      <Header
+    <>
+      <div
         style={{
+          backgroundColor: "#001529",
           display: "flex",
           justifyContent: "space-between",
+          padding: "20px 10px",
         }}
       >
         <div className="brand-logo">
@@ -95,6 +96,7 @@ const RootLayout = ({ children }) => {
             <Link
               href="/"
               style={{
+                textDecoration: "none !important",
                 color: "white",
                 padding: "5px 10px",
                 borderRadius: "3px",
@@ -114,7 +116,7 @@ const RootLayout = ({ children }) => {
           >
             <Button
               style={{ backgroundColor: "unset", borderColor: "unset" }}
-              className={styles.componentsBtn}
+              // className={styles.componentsBtn}
             >
               <span
                 style={{
@@ -136,17 +138,19 @@ const RootLayout = ({ children }) => {
               style={{
                 margin: "0px 5px",
                 color: "white",
-                fontSize: "16px",
+                fontSize: "18px",
+                fontFamily: "Roboto",
+                textDecoration: "none !important",
               }}
             >
-              {/* <Button
-                type="primary"
+              <Button
+                type="link"
                 shape="round"
                 icon={<EditOutlined />}
                 size={"large"}
-              > */}
+              >
                 Build PC
-              {/* </Button> */}
+              </Button>
             </items>
           </Link>
           {/* {
@@ -160,11 +164,12 @@ const RootLayout = ({ children }) => {
                 fontSize: "16px",
               }}
             >
-              Login
+              <Button type="primary" size={"large"}>
+                Login
+              </Button>
             </items>
           </Link>
 
-      
           <Button
             type="primary"
             onClick={showDrawer}
@@ -261,15 +266,11 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Button
-              style={{ width: "100%" }}
-              type="primary"
-              // shape="round"
-              icon={<EditOutlined />}
-              size={"large"}
-            >
-              Build PC
-            </Button>
+            <Link href={"/pcBuild"}>
+              <Button type="link" icon={<EditOutlined />} size={"large"}>
+                Build PC
+              </Button>
+            </Link>
           </p>
           <p
             style={{
@@ -280,10 +281,20 @@ const RootLayout = ({ children }) => {
               transition: "all 0.3s ease-in",
             }}
           >
-            <Link href="/login">Login</Link>
+            <Link href="/login">
+              <Button
+                style={{ width: "100%" }}
+                type="primary"
+                // shape="round"
+
+                size={"large"}
+              >
+                Login
+              </Button>
+            </Link>
           </p>
 
-          <p
+          {/* <p
             style={{
               color: "black",
               fontSize: "18px",
@@ -293,91 +304,11 @@ const RootLayout = ({ children }) => {
             }}
           >
             <Link href="/register">SignUp</Link>
-          </p>
+          </p> */}
         </Drawer>
-      </Header>
-
-      <Content
-        style={{
-          minHeight: "100vh",
-        }}
-      >
-        {children}
-      </Content>
-
-      <Footer
-        style={{
-          padding: "5vh 10vh",
-          backgroundColor: "#001529",
-          color: "white",
-        }}
-      >
-        <Row>
-          <Col
-            xs={24}
-            md={8}
-            style={{  fontFamily: "Roboto" }}
-          >
-            <h1>
-              <Link
-                href="/"
-                style={{
-                  color: "white",
-                  // padding: "5px 10px",
-                  borderRadius: "3px",
-                }}
-              >
-                PC PLANET
-              </Link>
-            </h1>
-
-            <p style={{ fontWeight: "bold", marginTop: "2vh" }}>Branch -1</p>
-            <p style={{ maxWidth: "400px", fontSize: "14px" ,padding:"0 2vh" }}>
-              Shop 248,249,250 #Level 2, Computer City Center (Multiplan) New
-              Elephant Road, Dhaka-1205, Bangladesh.
-            </p>
-            <h3 style={{ marginTop: "10px" }}>HelpLine</h3>
-            <p style={{ padding: "10px" }}>For PC: 01785236547</p>
-            <p style={{ padding: "10px" }}>For Laptop: 01785236547</p>
-          </Col>
-          <Col
-            xs={24}
-            md={8}
-            style={{ fontSize: "18px", fontFamily: "Roboto" }}
-          >
-            <h3>Stay Connected</h3>
-            
-            <ul style={{ listStyle: "unstyled",marginLeft:"20px" }}>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>CPU</li>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>
-                Motherboard
-              </li>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>Ram</li>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>
-                Storage Device
-              </li>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>
-                Monitor
-              </li>
-              <li style={{ padding: "10px 0px", fontWeight: "bold" }}>
-                Power Supply
-              </li>
-            </ul>
-          </Col>
-          <Col xs={24} md={8}>
-            <img src="/assets/pc-build.gif" alt="" width={"100%"} />
-          </Col>{" "}
-          <br />
-        </Row>
-        <br />
-        <hr />
-        <p style={{ textAlign: "center", fontSize: "18px" }}>
-          {" "}
-          Copyright © 2023, PC Planet, All Rights Reserved
-        </p>
-      </Footer>
-    </Layout>
+      </div>
+    </>
   );
 };
 
-export default RootLayout;
+export default NavigationBar;

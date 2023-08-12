@@ -1,8 +1,21 @@
-import '@/styles/globals.css'
 
-export default function MyApp({ Component, pageProps }) {
-  // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout || ((page) => page);
+import Footer from "@/Components/Footer";
+import NavigationBar from "@/Components/NavigationBar";
+import store from "@/redux/store";
+import "@/styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import { Provider } from "react-redux";
 
-  return getLayout(<Component {...pageProps} />);
+export default function App({ Component, pageProps }) {
+  return (
+    <>
+      <SessionProvider session={pageProps.session}>
+        <Provider store={store}>
+          <NavigationBar />
+          <Component {...pageProps} />
+          <Footer />
+        </Provider>
+      </SessionProvider>
+    </>
+  );
 }
