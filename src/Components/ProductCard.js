@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
             onClick={() => handleAddProduct(product)}
           >
             {" "}
-            Add item{" "}
+            Add To Builder{" "}
           </Button>
         ) : (
           <Link href={`/product/${product._id}`}>

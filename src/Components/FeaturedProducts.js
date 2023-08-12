@@ -16,7 +16,7 @@ const FeaturedProducts = ({ featuredProducts }) => {
     >
       <Title level={3} style={{ textAlign: "center" }}>
         {" "}
-        Best Selling Products
+        Featured Products
       </Title>
       <div
         style={{

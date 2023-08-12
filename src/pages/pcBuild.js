@@ -115,42 +115,45 @@ const BuildPC = () => {
             {" "}
             Build your Dream PC{" "}
           </Title>
-          <div
+          <Row
             style={{
+              padding: "0 2vh",
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
             }}
           >
-            <p
+            <Col xs={24} sm={24} md={8}
               style={{
+                padding:"10px 0",
                 fontFamily: "Roboto",
                 fontWeight: "bold",
                 fontSize: "16px",
               }}
             >
               Name: {session?.data?.user?.name}{" "}
-            </p>
-            <p
+            </Col>
+            <Col xs={24} sm={24} md={8}
               style={{
+                padding:"10px 0",
                 fontFamily: "Roboto",
                 fontWeight: "bold",
                 fontSize: "16px",
               }}
             >
               Email: {session?.data?.user?.email}{" "}
-            </p>
-            <p>
+            </Col>
+            <Col xs={24} sm={24} md={8}>
               <Button
                 type="primary"
                 disabled={activeSave ? false : true}
                 onClick={handleCompleteBtn}
               >
                 {" "}
-                Save list{" "}
+                Complete Build
               </Button>{" "}
-            </p>
-          </div>
+            </Col>
+          </Row>
           <Divider />
           {/* Selected Items For pc build */}
           <div>

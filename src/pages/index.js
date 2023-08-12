@@ -1,10 +1,8 @@
-import CategoryList from '@/Components/CategoryList';
-import FeaturedProducts from '@/Components/FeaturedProducts';
-import HeroSlider from '@/Components/HeroSlider';
-import ProductCard from '@/Components/ProductCard';
-import RootLayout from '@/Layouts/RootLayout';
-import Head from 'next/head';
-import React from 'react';
+import CategoryList from "@/Components/CategoryList";
+import FeaturedProducts from "@/Components/FeaturedProducts";
+import HeroSlider from "@/Components/HeroSlider";
+import RootLayout from "@/Layouts/RootLayout";
+import Head from "next/head";
 const shuffleProducts = (productsData) => {
   for (let i = productsData.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -13,7 +11,6 @@ const shuffleProducts = (productsData) => {
   return productsData;
 };
 const HomePage = ({ featuredProducts }) => {
-  
   return (
     <>
       <Head>
@@ -26,7 +23,7 @@ const HomePage = ({ featuredProducts }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeroSlider />
-      <CategoryList/>
+      <CategoryList />
       <FeaturedProducts featuredProducts={featuredProducts} />
     </>
   );
@@ -46,6 +43,5 @@ export const getStaticProps = async () => {
     props: {
       featuredProducts: shuffledProducts.slice(0, 8),
     },
-  
   };
 };
